@@ -6,7 +6,7 @@ export class Teacher {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 100 })
+  @Column({ length: 100, unique: true })  // <-- unique added here
   username: string;
 
   @Column({ length: 100 })
