@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -75,7 +74,7 @@ export default function TeacherDetailsForm() {
 };
 
 
-      const res = await fetch('http://localhost:3045/teacher', {
+      const res = await fetch('https://gurushish-8.onrender.com/teacher', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
