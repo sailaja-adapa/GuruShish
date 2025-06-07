@@ -61,7 +61,7 @@ export default function StudentPage() {
   useEffect(() => {
     async function fetchTeachers() {
       try {
-        const res = await fetch('http://localhost:3045/teacher');
+        const res = await fetch('https://gurushish-8.onrender.com/teacher');
         const data = await res.json();
         setTeachers(data);
       } catch (err) {
@@ -72,7 +72,7 @@ export default function StudentPage() {
     async function fetchSessions() {
       if (!studentUsername) return;
       try {
-        const res = await fetch(`http://localhost:3045/bookings/student/${studentUsername}`);
+        const res = await fetch(`https://gurushish-8.onrender.com/bookings/student/${studentUsername}`);
         const data = await res.json();
         setSessions(data);
       } catch (err) {
@@ -87,7 +87,7 @@ export default function StudentPage() {
   const handleViewProfile = async (username: string) => {
     setLoadingProfile(true);
     try {
-      const res = await fetch(`http://localhost:3045/teacher-profiles/username/${username}`);
+      const res = await fetch(`https://gurushish-8.onrender.com/teacher-profiles/username/${username}`);
       const data = await res.json();
       setSelectedProfile(data);
     } catch (err) {
@@ -115,7 +115,7 @@ export default function StudentPage() {
         end_time: teacher.end_time || '',
       };
 
-      const res = await fetch('http://localhost:3045/bookings', {
+      const res = await fetch('https://gurushish-8.onrender.com/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingData),
@@ -265,7 +265,7 @@ export default function StudentPage() {
               <p><strong>Max Students:</strong> {selectedProfile.max_students ?? 'N/A'}</p>
               {selectedProfile.degree_certificate_path && (
                 <img
-                  src={`https://gurushish-3.onrender.com/${selectedProfile.degree_certificate_path.replace(/\\/g, '/')}`}
+                  src={`https://gurushish-8.onrender.com/${selectedProfile.degree_certificate_path.replace(/\\/g, '/')}`}
                   alt="Degree Certificate"
                   className="w-full mt-2 rounded"
                 />
